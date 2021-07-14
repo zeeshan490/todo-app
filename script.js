@@ -2,7 +2,7 @@ let addTodoButton = document.querySelector(".add-todo");
 //selected this button with the selector
 let todoInput = document.querySelector(".todo-input");
 let todoList = document.querySelector(".input-container");
-// let deleteTodo= document.querySelector("delete-todo");
+
 
 todoInput.addEventListener("keypress", function(e){
     if(e.key=="Enter"){
@@ -35,6 +35,8 @@ function appendTodo(todo){
     deleteTodoButton.classList.add("delete-todo");
     deleteTodoButton.textContent="Delete";
 
+    deleteTodoButton.addEventListener("click",deleteTodo);
+
     todoItemDiv.append(pTag);
     todoItemDiv.append(deleteTodoButton);
     //it will make p and delete the child of main div todoItemDiv
@@ -43,11 +45,12 @@ function appendTodo(todo){
 
 }
 
-// function deleteTodo(){
-//     console.log(e);
-    // let deleteTodo = document.getElementById("");
-    // deleteTodo.remove();
+function deleteTodo(e){
+    e.target.parentNode.remove();
 }
+
+
+
 
 
 
